@@ -5,7 +5,7 @@ make sure this is efficient for extreme large lists as well.
 
 Provide a couple of sentences describing the reasoning behind your approach.
 """
-from countlist import simple_count, binsearch_count
+from countlist import simple_count, binsearch_count,smart_count
 import pytest
 
 
@@ -34,8 +34,12 @@ def test_binsearch(size):
     assert size == binsearch_count([0] * size)
 
 def test_binsearch_exhaustive():
-    for i in range(1000)[1:]:
+    for i in range(1000)[1:]: # We skip 0 because binsearch is not working with empty lists
         l = [0] * i
         assert len(l) == binsearch_count(l)
 
 
+def test_smart_count_exhaustive():
+    for i in range(1000):
+        l = [0] * i
+        assert len(l) == smart_count(l)
