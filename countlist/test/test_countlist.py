@@ -5,13 +5,14 @@ make sure this is efficient for extreme large lists as well.
 
 Provide a couple of sentences describing the reasoning behind your approach.
 """
-from countlist import simple_count, binsearch_count,smart_count
+# from countlist import simple_count, binsearch_count,smart_count
 import pytest
+
+from countlist.countlist import simple_count, binsearch_count, smart_count
 
 
 def test_zero():
     assert 0 == simple_count([])
-    assert 0 == binsearch_count([])
 
 def test_one():
     assert 1 == simple_count(['a'])
